@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="DefaultTheme" >
+        <item name="theme">  @style/ToolbarTheme  </item>
+    </style>
+    <style name="FirstTheme" >
+        <item name="theme">@style/AppTheme1</item>
+
+    </style>
+    <style name="SecondTheme" >
+        <item name="theme">@style/AppTheme2</item>
+
+    </style>
+    <style name="ThirdTheme" >
+        <item name="theme">@style/AppTheme3</item>
+
+    </style>
+
+</resources>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "345881949866",
+    "project_id": "literacyapp-da82d",
+    "storage_bucket": "literacyapp-da82d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:345881949866:android:8e69a7d23ebc32128082d3",
+        "android_client_info": {
+          "package_name": "com.example.literacyapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "345881949866-fo8vgs83e4ptdr01mrludihqufavda7n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAW-z6uS33_f0dTIknR_k2ImmYzlHGqMMU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "345881949866-fo8vgs83e4ptdr01mrludihqufavda7n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

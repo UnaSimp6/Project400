@@ -1,0 +1,112 @@
+<resources>
+    <string name="app_name">Adult Literacy Application</string>
+
+
+    <string name="image_contentDescription">image</string>
+    <string name="sign_in">SIGN IN</string>
+    <string name="sign_up">SIGN UP</string>
+    <string name="back">Back</string>
+    <string name="intro_text_description">Adults Literacy Application</string>
+
+
+    <string name="sign_up_description_text">Enter your name, email address and a password to register.</string>
+    <string name="name">Name</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="title_activity_sign_in">SignInActivity</string>
+    <string name="let_s_get_started_text">Let\'s Get started</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">Login failed</string>
+    <string name="sign_in_description_text">Enter your email address and password.</string>
+    <string name="book_icon">Adult Literacy</string>
+    <string name="please_click_back_again_to_exit">Please click back again to exit</string>
+    <string name="please_wait">Please Wait&#8230;</string>
+
+    <string name="nav_my_profile">My Profile</string>
+    <string name="nav_sign_out">Sign Out</string>
+    <string name="nav_history">History</string>
+
+    <string name="mobile">Mobile</string>
+    <string name="update">UPDATE</string>
+    <string name="my_profile">My Profile</string>
+
+    <string name="title_activity_base">BaseActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="courses_available_at_level">The below courses are available for this level</string>
+    <string name="level_2_lessons">Level 2 Reading Lessons</string>
+    <string name="level_heading">Guide to each level</string>
+    <string name="level_subheading">Select a level to start</string>
+    <string name="level_1">Level 1</string>
+    <string name="level_2">Level 2</string>
+    <string name="level_3">Level 3</string>
+    <string name="sound_level_1">I am learning how to spell and read</string>
+    <string name="sound_level_2"> I find it hard to write full sentences and takes me a long time to read</string>
+    <string name="sound_level_3">I can write short sentences and can read a little. I would like to brush up on my skills</string>
+    <string name="quiz_explanation1">Take this short quiz to test your skills for this course. \n\nThis quiz is made up of 5 short tasks. \n\nYou can also skip the quiz and go straight to the lessons</string>
+    <string name="take_quiz">Take the Quiz</string>
+    <string name="skip_quiz">Skip the Quiz</string>
+
+    <string name="course_guidance">Please select one of the lessons </string>
+
+    <string name="result_text">Click skip this course to return to the Courses Menu.\n\nClick Continue to go to the lessons. </string>
+
+    <string name="result_skip">Skip this course </string>
+    <string name="result_continue">Continue </string>
+
+    <string name="reading_level_2_lessons1">Reading everyday words</string>
+    <string name="reading_level_2_lessons2">Using Rules</string>
+    <string name="reading_level_2_lessons3">Reading texts</string>
+    <string name="reading_level_2_lessons4">Finding Information</string>
+    <string name="reading_level_2_lessons5">Reading Strategies</string>
+    <string name="reading_completed_lesson">Completed</string>
+
+    <string name="reading_image_content_description">Image of lessons</string>
+    <string name="reading_detail_heading">Watch the short videos and complete the lessons. \n\nPress Start Activity to go directly to the lessons. </string>
+    <string name="reading_worksheet_description_text">Complete each of the below worksheets</string>
+
+
+    <string name="small_in_big_words_text">Find small words within bigger words to match a clue</string>
+    <string name="linking_words_text">Use of linking words - so, because, if</string>
+    <string name="same_sounding_words_text">Same sounding words - pick correct for definition</string>
+    <string name="common_abbr_text">Common abbreviations</string>
+    <string name="title_activity_communications_explanation">CommunicationsExplanationActivity
+    </string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <string name="listen_quiz">Listen to the audio file and answer the question.</string>
+    <string name="communication">Read the recipe and answer the question.</string>
+
+    <string name="writing_level_2_lessons1">Writing Notes</string>
+    <string name="writing_level_2_lessons2">Writing Sentences</string>
+    <string name="writing_level_2_lessons3">Writing Different Styles</string>
+    <string name="writing_level_2_lessons4">Handwriting</string>
+    <string name="writing_completed_lesson">Completed</string>
+
+    <string name="listening_level_2_lessons1">Listening</string>
+    <string name="listening_level_2_lessons2">Asking questions</string>
+    <string name="listening_level_2_lessons3">Following instructions</string>
+    <string name="listening_level_2_lessons4">Giving opinions</string>
+    <string name="listening_level_2_lessons5">Communicating</string>
+    <string name="listening_completed_lesson">Completed</string>
+
+    <string name="communication_level_2_lessons1">Reading</string>
+    <string name="communication_level_2_lessons2">Writing</string>
+    <string name="communication_level_2_lessons3">Personal Skills</string>
+    <string name="communication_completed_lesson">Completed</string>
+
+
+</resources>
+

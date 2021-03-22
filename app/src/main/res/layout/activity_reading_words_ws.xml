@@ -1,0 +1,174 @@
+<!--The values for the drawable items, dimen, string and color values are added in their respective folders and files.-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="@drawable/ic_background"
+    tools:context=".activities.reading.ReadingWordsWSActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_reading_worksheet_activity"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/tv_levels_margin"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/primary_text_color"
+            android:textSize="@dimen/toolbar_title_text_size"
+            android:textStyle="bold" />
+
+    </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ImageView
+        android:id="@+id/iv_LG_book_icon"
+        android:layout_width="74dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/ic_alalogo" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/authentication_screen_content_marginTop"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/authentication_screen_marginStartEnd"
+            android:layout_marginEnd="@dimen/authentication_screen_marginStartEnd"
+            android:gravity="center"
+            android:text="@string/reading_worksheet_description_text"
+            android:textColor="@color/secondary_text_color"
+            android:textSize="@dimen/authentication_description_text_size" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/card_view_layout_content_padding">
+                <Button
+                    android:id="@+id/btn_small_in_big_words"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/small_in_big_words_text"
+                    android:textSize="@dimen/et_text_size"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:textColor="@color/white_text_color"/>
+
+                <TextView
+                    android:id="@+id/tv_completedSmallWords"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Not Completed "
+                    android:textColor="@color/secondary_text_color"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_linking_words"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/linking_words_text"
+                    android:textSize="@dimen/et_text_size"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:textColor="@color/white_text_color"/>
+            </LinearLayout>
+        <TextView
+            android:id="@+id/tv_completedLinkingWords"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Completed "
+            android:textColor="@color/secondary_text_color"
+            android:visibility="gone"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_same_sounding_words"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/same_sounding_words_text"
+                    android:textSize="@dimen/et_text_size"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:textColor="@color/white_text_color"/>
+            </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_completedSoundingWords"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Completed "
+                android:textColor="@color/secondary_text_color"
+                android:visibility="gone"/>
+        </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_common_abbr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/common_abbr_text"
+                    android:textSize="@dimen/et_text_size"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:textColor="@color/white_text_color"/>
+            </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tv_common_abbr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_completedCommonAbbr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Completed "
+                android:textColor="@color/secondary_text_color"
+                android:visibility="gone"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

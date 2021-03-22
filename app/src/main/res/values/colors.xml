@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#14D9DF</color>
+    <color name="colorPrimaryDark">#288080</color>
+    <color name="colorAccent">#14D9DF</color>
+    <color name="colorBackGround">#14D9DF</color>
+
+    <color name="primary_text_color">#363A43</color>
+    <color name="secondary_text_color">#7A8089</color>
+    <color name="white_text_color">#FFFFFF</color>
+
+    <color name="snackbar_error_color">#F72400</color>
+
+    <color name="blip">#FFFFFF</color>
+    <color name="level1"> #d093f8 </color>
+    <color name="level2"> #32e5e2</color>
+    <color name="level3"> #fd965c </color>
+
+</resources>

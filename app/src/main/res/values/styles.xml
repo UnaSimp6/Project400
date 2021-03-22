@@ -1,0 +1,44 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+    </style>
+    <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+    </style>
+
+    <style name="AppTheme1" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorButtonNormal">    #c591cd </item>
+        <item name="colorPrimary">@color/level1</item>
+        <item name="android:text">Level 1</item>
+        <item name="android:textColor">@color/white_text_color</item>
+
+    </style>
+
+    <style name="AppTheme2" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorButtonNormal">#3fd8d7</item>
+        <item name="colorPrimary">@color/level2</item>
+        <item name="android:text">Level 2</item>
+        <item name="android:textColor">@color/white_text_color</item>
+
+    </style>
+
+    <style name="AppTheme3" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorButtonNormal">   #fb7d27   </item>
+        <item name="colorPrimary">@color/level3</item>
+        <item name="android:text">Level 3</item>
+        <item name="android:textColor">@color/white_text_color</item>
+
+    </style>
+
+
+
+
+
+</resources>
