@@ -1,5 +1,6 @@
 package com.example.literacyapp.activities.reading
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -9,6 +10,7 @@ import android.view.View
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import com.example.literacyapp.R
 import com.example.literacyapp.activities.BaseActivity
 import com.example.literacyapp.activities.CoursesActivity
@@ -25,12 +27,15 @@ import kotlinx.android.synthetic.main.header_reading_item.*
 //const val READING_ID = "reading id"
 
 class ReadingLessonsActivity : BaseActivity() {
-    val TAG = "Course 1"
+    val TAG = "Reading Lesson 1"
     private var mCurrentPosition: Int = 1 // Default and the first question position
     private var mWorksheetList: TextView? = null
     private var mCorrectAnswers: Int = 0
 
     private var isBackground = true
+
+    private var  courseCompleted = 0
+    private var onBackPressedTime: Long = 0
 
     private lateinit var mSharedPreference: SharedPreferences
 
@@ -59,13 +64,18 @@ class ReadingLessonsActivity : BaseActivity() {
         if(intent.hasExtra(ReadingWordsWSActivity.WS_COMPLETED)){
             if(lessonCompleted > 0 ) {
             progressBar.progress = lessonCompleted
-            tv_progress.text = "$lessonCompleted" + "/" + progressReadingWords.getMax()
+            tv_progressReadingWords.text = "$lessonCompleted" + "/" + progressReadingWords.getMax()
         }
         }
 
         btn_reading_words.setOnClickListener {
-            startActivity(Intent(this@ReadingLessonsActivity, ReadingDetailActivity::class.java))
-            finish()
+            //startActivity(Intent(this@ReadingLessonsActivity, ReadingDetailActivity::class.java))
+            //finish()
+
+            val intent = Intent(this, ReadingDetailActivity::class.java)
+            intent.putExtra(Constants.COURSES_RESPONSE_DATA, Constants.COURSESCOMPLETED)
+            setResult(Activity.RESULT_OK, intent)
+            startActivityForResult(intent, LESSONS_REQUEST_CODE)
         }
         btn_using_rules.setOnClickListener {
             startActivity(Intent(this@ReadingLessonsActivity, ReadingDetailActivity::class.java))
@@ -82,6 +92,24 @@ class ReadingLessonsActivity : BaseActivity() {
         btn_reading_strategy.setOnClickListener {
             startActivity(Intent(this@ReadingLessonsActivity, ReadingDetailActivity::class.java))
             finish()
+        }
+    }
+
+    private fun passLessonsProgress(){
+        val lessonCompleted = mSharedPreference.getInt(Constants.LESSONS_RESPONSE_DATA, Constants.LESSONCOMPLETED)
+        val courseCompleted = lessonCompleted.toInt()
+        val editor = mSharedPreference.edit()
+        editor.putInt(Constants.COURSES_RESPONSE_DATA, courseCompleted)
+        editor.apply()
+
+    }
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == LESSONS_REQUEST_CODE) {
+            if(resultCode == Activity.RESULT_OK){
+                finish()
+            }
         }
     }
     override fun onStart() {
@@ -114,6 +142,7 @@ class ReadingLessonsActivity : BaseActivity() {
         super.onPause()
         Log.d(TAG, "onPause")
         if (isBackground) {
+            passLessonsProgress()
             val lessonCompleted = mSharedPreference.getInt(Constants.LESSONS_RESPONSE_DATA, Constants.LESSONCOMPLETED)
             val editor = mSharedPreference.edit()
             editor.putInt(Constants.LESSONS_RESPONSE_DATA, lessonCompleted)
@@ -154,6 +183,30 @@ class ReadingLessonsActivity : BaseActivity() {
         }
 
         toolbar_reading_menu_activity.setNavigationOnClickListener { onBackPressed() }
+    }
+
+    override fun onBackPressed() {
+
+        if (onBackPressedTime + 2000 > System.currentTimeMillis()) {
+            // passReadinWSProgress()
+            //   val intent = Intent(this, ReadingDetailActivity::class.java)
+            //   intent.putExtra(Constants.LESSONS_RESPONSE_DATA, lessonCompleted)
+            //   setResult(Activity.RESULT_OK, intent)
+            //  startActivityForResult(intent, READINGWORDS_REQUEST_CODE)
+            startActivity(Intent(this, CoursesActivity::class.java))
+            finish()
+
+        } else {
+            Toast.makeText(this, "Press Back Again", Toast.LENGTH_SHORT).show()
+        }
+        onBackPressedTime = System.currentTimeMillis()
+
+    }
+
+    companion object {
+        val LESSONS_COMPLETED = "LessonsCompleted"
+        private val LESSONS_REQUEST_CODE = 0
+
     }
 }
 

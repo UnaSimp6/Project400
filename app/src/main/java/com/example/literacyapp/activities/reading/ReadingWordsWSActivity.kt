@@ -157,10 +157,12 @@ class ReadingWordsWSActivity :  BaseActivity() {
 
         if (onBackPressedTime + 2000 > System.currentTimeMillis()) {
            // passReadinWSProgress()
-            val intent = Intent(this, ReadingDetailActivity::class.java)
-            intent.putExtra(Constants.LESSONS_RESPONSE_DATA, lessonCompleted)
-            setResult(Activity.RESULT_OK, intent)
-            startActivityForResult(intent, READINGWORDS_REQUEST_CODE)
+         //   val intent = Intent(this, ReadingDetailActivity::class.java)
+         //   intent.putExtra(Constants.LESSONS_RESPONSE_DATA, lessonCompleted)
+         //   setResult(Activity.RESULT_OK, intent)
+          //  startActivityForResult(intent, READINGWORDS_REQUEST_CODE)
+            startActivity(Intent(this@ReadingWordsWSActivity, ReadingDetailActivity::class.java))
+            finish()
 
         } else {
             Toast.makeText(this, "Press Back Again", Toast.LENGTH_SHORT).show()

@@ -17,5 +17,7 @@ object Constants {
     const val WORKSHEET_RESPONSE_DATA = "quiz_response_data"
     const val LESSONS_RESPONSE_DATA = "lessons_response_data"
     const val LESSONCOMPLETED = 0
+    const val COURSES_RESPONSE_DATA = "courses_response_data"
+    const val COURSESCOMPLETED = 0
     // END
 }

@@ -244,6 +244,7 @@ class MainReadingQuiz : AppCompatActivity() {
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+
         if (requestCode == WS_ACTIVITY_REQUEST_CODE) {
             if(resultCode == Activity.RESULT_OK){
                 finish()
@@ -251,6 +252,7 @@ class MainReadingQuiz : AppCompatActivity() {
         }
     }
     override fun onBackPressed() {
+
         if (onBackPressedTime + 2000 > System.currentTimeMillis()) {
             finishQuizActivity()
         } else {
