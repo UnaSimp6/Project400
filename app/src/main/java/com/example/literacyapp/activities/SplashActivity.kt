@@ -15,9 +15,6 @@ class SplashActivity : AppCompatActivity() {
 
     val TAG = "Splash"
 
-    var tutorialUsed : Boolean = false
-    var tutorialPage : Int = 0
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)

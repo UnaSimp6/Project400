@@ -55,21 +55,20 @@
             android:text="@string/courses_available_at_level"
             android:textColor="@color/primary_text_color"
             android:textSize="25sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="494dp"
+            android:layout_height="484dp"
             android:layout_marginStart="@dimen/authentication_screen_marginStartEnd"
-            android:layout_marginTop="1dp"
             android:layout_marginEnd="@dimen/authentication_screen_marginStartEnd"
             android:elevation="@dimen/card_view_elevation"
             app:cardCornerRadius="@dimen/card_view_corner_radius">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="470dp"
+                android:layout_height="502dp"
                 android:orientation="vertical"
                 android:padding="@dimen/card_view_layout_content_padding">
 
@@ -77,12 +76,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="16dp">
+                    android:padding="10dp">
 
                     <Button
                         android:id="@+id/btn_reading"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_gravity="center_vertical"
                         android:drawableLeft="@drawable/reading"
                         android:foreground="?attr/selectableItemBackground"
@@ -94,6 +93,7 @@
                         android:id="@+id/ll_progress_reading"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
 
@@ -101,11 +101,12 @@
                             android:id="@+id/progressCourseReading"
                             style="?android:attr/progressBarStyleHorizontal"
                             android:layout_width="0dp"
-                            android:layout_height="wrap_content"
+                            android:layout_height="10dp"
                             android:layout_weight="1"
                             android:indeterminate="false"
                             android:max="20"
-                            android:minHeight="10dp"
+                            android:minHeight="50dp"
+                            android:padding="15dp"
                             android:progress="0" />
 
                         <TextView
@@ -113,9 +114,10 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:padding="2dp"
-                            android:textColorHint="#7A8089"
-                            android:textSize="14sp"
+                            android:padding="5dp"
+                            android:textColor="@color/secondary_text_color"
+                            android:textColorHint="@color/secondary_text_color"
+                            android:textSize="12sp"
                             tools:text="0/20" />
                     </LinearLayout>
 
@@ -126,12 +128,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="16dp">
+                    android:padding="10dp">
 
                     <Button
                         android:id="@+id/btn_writing"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:drawableLeft="@drawable/writing"
                         android:foreground="?attr/selectableItemBackground"
                         android:text="Writing"
@@ -142,6 +144,7 @@
                         android:id="@+id/ll_progress_writing"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
 
@@ -149,11 +152,12 @@
                             android:id="@+id/progressCourseWriting"
                             style="?android:attr/progressBarStyleHorizontal"
                             android:layout_width="0dp"
-                            android:layout_height="wrap_content"
+                            android:layout_height="10dp"
                             android:layout_weight="1"
                             android:indeterminate="false"
-                            android:max="20"
-                            android:minHeight="10dp"
+                            android:max="4"
+                            android:minHeight="50dp"
+                            android:padding="15dp"
                             android:progress="0" />
 
                         <TextView
@@ -161,25 +165,27 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:padding="2dp"
-                            android:textColorHint="@color/colorPrimary"
+                            android:padding="5dp"
+                            android:textColor="@color/secondary_text_color"
+                            android:textColorHint="@color/secondary_text_color"
                             android:textSize="12sp"
-                            tools:text="0/10" />
+                            android:text="0/5"
+                            tools:text="0/20" />
                     </LinearLayout>
-                </LinearLayout>
 
+                </LinearLayout>
 
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="16dp">
+                    android:padding="10dp">
 
                     <Button
                         android:id="@+id/btn_listening"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:drawableLeft="@drawable/listening_c"
                         android:foreground="?attr/selectableItemBackground"
                         android:text="Listening"
@@ -198,11 +204,12 @@
                             android:id="@+id/progressCourseListening"
                             style="?android:attr/progressBarStyleHorizontal"
                             android:layout_width="0dp"
-                            android:layout_height="wrap_content"
+                            android:layout_height="20dp"
                             android:layout_weight="1"
                             android:indeterminate="false"
-                            android:max="20"
-                            android:minHeight="20dp"
+                            android:max="4"
+                            android:minHeight="50dp"
+                            android:padding="15dp"
                             android:progress="0" />
 
                         <TextView
@@ -210,30 +217,33 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:padding="2dp"
-                            android:textColorHint="@color/colorPrimary"
+                            android:padding="5dp"
+                            android:textColor="@color/secondary_text_color"
+                            android:textColorHint="@color/secondary_text_color"
                             android:textSize="12sp"
-                            tools:text="0/10" />
+                            android:text="0/5"
+                            tools:text="0/20" />
                     </LinearLayout>
-                </LinearLayout>
 
+                </LinearLayout>
 
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="16dp">
+                    android:padding="10dp">
 
                     <Button
                         android:id="@+id/btn_communications"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:drawableLeft="@drawable/communicate"
                         android:foreground="?attr/selectableItemBackground"
                         android:text="Communications"
                         android:textColor="@android:color/white"
                         android:textSize="18sp"></Button>
+
                     <LinearLayout
                         android:id="@+id/ll_progress_comms"
                         android:layout_width="match_parent"
@@ -246,11 +256,12 @@
                             android:id="@+id/progressCourseComms"
                             style="?android:attr/progressBarStyleHorizontal"
                             android:layout_width="0dp"
-                            android:layout_height="wrap_content"
+                            android:layout_height="20dp"
                             android:layout_weight="1"
                             android:indeterminate="false"
                             android:max="4"
-                            android:minHeight="20dp"
+                            android:minHeight="50dp"
+                            android:padding="15dp"
                             android:progress="0" />
 
                         <TextView
@@ -258,11 +269,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:padding="2dp"
-                            android:textColorHint="@color/colorPrimary"
+                            android:padding="5dp"
+                            android:textColor="@color/secondary_text_color"
+                            android:textColorHint="@color/secondary_text_color"
                             android:textSize="12sp"
-                            tools:text="0/10" />
+                            android:text="0/5"
+                            tools:text="0/20" />
                     </LinearLayout>
+
                 </LinearLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>

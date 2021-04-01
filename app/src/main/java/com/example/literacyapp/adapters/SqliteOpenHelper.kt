@@ -50,8 +50,6 @@ class SqliteOpenHelper(
         db.close() // Database is closed after insertion.
     }
 
-    // TODO(Step 1 : Getting the list of completed dates from the History Table.)
-    // START
     /**
      * Function returns the list of history table data.
      */

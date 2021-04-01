@@ -11,14 +11,17 @@ import android.os.Bundle
 import android.os.CountDownTimer
 import android.util.Log
 import android.view.View
+import android.view.WindowManager
 import android.widget.*
 import com.example.literacyapp.R
 import com.example.literacyapp.activities.Utils
 import com.example.literacyapp.adapters.DatabaseHelper
+import com.example.literacyapp.adapters.SqliteOpenHelper
 import com.example.literacyapp.data.ReadingQuestion
 import com.example.literacyapp.utils.Constants
 import kotlinx.android.synthetic.main.activity_reading_words_ws.*
 import kotlinx.android.synthetic.main.activity_results.*
+import java.text.SimpleDateFormat
 import java.util.*
 
 class MainReadingQuiz : AppCompatActivity() {
@@ -56,6 +59,11 @@ class MainReadingQuiz : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         Utils.onActivityCreateSetTheme(this)
         setContentView(R.layout.activity_main_reading_quiz)
+
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
 
         mSharedPreference = getSharedPreferences(Constants.PREFERENCE_NAME, Context.MODE_PRIVATE)
 
@@ -203,6 +211,8 @@ class MainReadingQuiz : AppCompatActivity() {
 
     }
     private fun finishQuizActivity() {
+        addDateToDatabase()
+
         val tscore=score.toInt()
         val editor = mSharedPreference.edit()
         editor.putInt(Constants.WORKSHEET_RESPONSE_DATA, tscore)
@@ -261,6 +271,25 @@ class MainReadingQuiz : AppCompatActivity() {
         onBackPressedTime = System.currentTimeMillis()
 
     }
+
+    private fun addDateToDatabase() {
+
+        val c = Calendar.getInstance() // Calender Current Instance
+        val dateTime = c.time // Current Date and Time of the system.
+        Log.e("Date : ", "" + dateTime) // Printed in the log.
+
+        // Date formatter
+        val sdf = SimpleDateFormat("dd MMM yyyy HH:mm:ss", Locale.getDefault()) // Date Formatter
+        val date = sdf.format(dateTime) // dateTime is formatted in the given format.
+        Log.e("Formatted Date : ", "" + date) // Formatted date is printed in the log.
+
+        // Instance of the Sqlite Open Helper class.
+        val dbHandler = SqliteOpenHelper(this, null)
+        dbHandler.addDate(date) // Add date function is called.
+        Log.e("Date : ", "Added...") // Printed in log which is printed if the complete execution is done.
+    }
+
+
     companion object {
         val FINAL_SCORE = "FinalScore"
         private val COUNTDOWN_TIMER: Long = 200000

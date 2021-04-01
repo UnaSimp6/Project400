@@ -18,7 +18,7 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_Reading_Detail_activity"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="?attr/actionBarSize"
         android:orientation="vertical">
 
         <TextView
@@ -83,18 +83,18 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <com.google.android.youtube.player.YouTubePlayerView
-                android:id="@+id/youtubePlayer1"
-                android:layout_width="wrap_content"
-                android:layout_height="100dp" />
-        </GridLayout>
-            <!--<Button
-                android:id="@+id/btnPlay1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/youtubePlayer1"
-                android:layout_gravity="center_horizontal"
-                android:text="Play Video" />-->
+        <!--      <com.google.android.youtube.player.YouTubePlayerView
+                  android:id="@+id/youtubePlayer1"
+                  android:layout_width="wrap_content"
+                  android:layout_height="100dp" />-->
+          </GridLayout>
+              <Button
+                  android:id="@+id/btnPlay1"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_below="@+id/youtubePlayer1"
+                  android:layout_gravity="center_horizontal"
+                  android:text="Play Video" />
 
         <GridLayout
             android:layout_width="wrap_content"
@@ -103,19 +103,20 @@
             android:layout_gravity="center_horizontal"
             android:orientation="vertical"
             android:padding="16dp">
-            <com.google.android.youtube.player.YouTubePlayerView
-                android:id="@+id/youtubePlayer2"
-                android:layout_width="wrap_content"
-                android:layout_height="100dp" />
-        </GridLayout>
 
-            <!--<Button
-                android:id="@+id/btnPlay2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/youtubePlayer2"
-                android:layout_gravity="center_horizontal"
-                android:text="Play Video" />-->
+        <!--<com.google.android.youtube.player.YouTubePlayerView
+            android:id="@+id/youtubePlayer2"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp" />-->
+    </GridLayout>
+
+        <Button
+            android:id="@+id/btnPlay2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/youtubePlayer2"
+            android:layout_gravity="center_horizontal"
+            android:text="Play Video" />
 
      <!--   <GridLayout
             android:layout_width="wrap_content"

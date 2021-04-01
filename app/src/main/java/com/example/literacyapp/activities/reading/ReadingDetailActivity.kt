@@ -9,6 +9,7 @@ import android.speech.tts.TextToSpeech
 import android.util.Log
 import android.view.View
 import android.view.WindowManager
+import android.widget.Button
 import android.widget.Toast
 import com.example.literacyapp.R
 import com.example.literacyapp.activities.BaseActivity
@@ -17,6 +18,7 @@ import com.example.literacyapp.utils.Constants
 import com.google.android.youtube.player.YouTubeBaseActivity
 import com.google.android.youtube.player.YouTubeInitializationResult
 import com.google.android.youtube.player.YouTubePlayer
+import com.google.android.youtube.player.YouTubeStandalonePlayer
 import kotlinx.android.synthetic.main.activity_courses.*
 import kotlinx.android.synthetic.main.activity_reading_explanation.*
 import kotlinx.android.synthetic.main.activity_reading_detail.*
@@ -25,7 +27,7 @@ import kotlinx.android.synthetic.main.activity_reading_words_ws.*
 import kotlinx.android.synthetic.main.activity_results.*
 import java.util.*
 
-class ReadingDetailActivity :  YouTubeBaseActivity() , TextToSpeech.OnInitListener {
+class ReadingDetailActivity :  BaseActivity(), TextToSpeech.OnInitListener {
 
     private var tts: TextToSpeech? = null //Variable for Text to Speech
     private var onBackPressedTime: Long = 0
@@ -37,7 +39,7 @@ class ReadingDetailActivity :  YouTubeBaseActivity() , TextToSpeech.OnInitListen
     }
     private lateinit var mSharedPreference: SharedPreferences
 
-    lateinit var youtubePlayerInit: YouTubePlayer.OnInitializedListener
+   // lateinit var youtubePlayerInit: YouTubePlayer.OnInitializedListener
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Utils.onActivityCreateSetTheme(this)
@@ -48,12 +50,12 @@ class ReadingDetailActivity :  YouTubeBaseActivity() , TextToSpeech.OnInitListen
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
 
-        //setSupportActionBar(toolbar_Reading_Detail_activity)
-        //supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        //toolbar_Reading_Detail_activity.setNavigationOnClickListener {
-        //    onBackPressed()
-       // }
-        //setupActionBar()
+        setSupportActionBar(toolbar_Reading_Detail_activity)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        toolbar_Reading_Detail_activity.setNavigationOnClickListener {
+            onBackPressed()
+        }
+        setupActionBar()
 
         mSharedPreference = getSharedPreferences(Constants.PREFERENCE_NAME, Context.MODE_PRIVATE)
 
@@ -104,7 +106,7 @@ class ReadingDetailActivity :  YouTubeBaseActivity() , TextToSpeech.OnInitListen
     }
 
     private fun initUI() {
-        youtubePlayerInit = object : YouTubePlayer.OnInitializedListener {
+        /*youtubePlayerInit = object : YouTubePlayer.OnInitializedListener {
             override fun onInitializationSuccess(p0: YouTubePlayer.Provider?, youtubePlayer: YouTubePlayer?, p2: Boolean) {
                 youtubePlayer?.loadVideo(VIDEO_ID1)
                 youtubePlayer?.loadVideo(VIDEO_ID2)
@@ -123,22 +125,29 @@ class ReadingDetailActivity :  YouTubeBaseActivity() , TextToSpeech.OnInitListen
 
         youtubePlayer2.setOnClickListener(View.OnClickListener { v ->
             youtubePlayer2.initialize(YOUTUBE_API_KEY, youtubePlayerInit)
-        })
-        /*btnPlay2.setOnClickListener(View.OnClickListener { v ->
-            youtubePlayer2.initialize(YOUTUBE_API_KEY, youtubePlayerInit)
         })*/
+        val button1 = findViewById<Button>(R.id.btnPlay1)
+        button1.setOnClickListener {
+            val intent = YouTubeStandalonePlayer.createVideoIntent(this, YOUTUBE_API_KEY, VIDEO_ID1);
+            startActivity(intent)
+        }
 
-        //btnPlay3.setOnClickListener(View.OnClickListener { v ->
-        //    youtubePlayer3.initialize(YOUTUBE_API_KEY, youtubePlayerInit)
-       // })
+        val button2 = findViewById<Button>(R.id.btnPlay2)
+        button2.setOnClickListener {
+            val intent = YouTubeStandalonePlayer.createVideoIntent(this, YOUTUBE_API_KEY, VIDEO_ID2);
+            startActivity(intent)
+        }
+
+
+
     }
 
     /**
      * A function for actionBar Setup.
      */
-    //private fun setupActionBar() {
+    private fun setupActionBar() {
 
-    /*    setSupportActionBar(toolbar_Reading_Detail_activity)
+        setSupportActionBar(toolbar_Reading_Detail_activity)
 
         val actionBar = supportActionBar
         if (actionBar != null) {
@@ -148,7 +157,7 @@ class ReadingDetailActivity :  YouTubeBaseActivity() , TextToSpeech.OnInitListen
 
 
         toolbar_Reading_Detail_activity.setNavigationOnClickListener { onBackPressed() }
-    }*/
+    }
 
     override fun onBackPressed() {
 
