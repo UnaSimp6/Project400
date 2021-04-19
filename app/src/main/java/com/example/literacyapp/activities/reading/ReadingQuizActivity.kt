@@ -10,7 +10,7 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import com.example.literacyapp.R
 import com.example.literacyapp.activities.BaseActivity
-import com.example.literacyapp.activities.Utils
+import com.example.literacyapp.model.Utils
 import com.example.literacyapp.model.CoursesQuiz
 import com.example.literacyapp.utils.ReadingQuestions
 import kotlinx.android.synthetic.main.activity_courses.*

@@ -1,20 +1,16 @@
 package com.example.literacyapp.activities.reading
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.util.Log
 import android.view.View
-import android.widget.Toast
 import com.example.literacyapp.R
 import com.example.literacyapp.activities.BaseActivity
 import com.example.literacyapp.activities.CoursesActivity
-import com.example.literacyapp.activities.Utils
+import com.example.literacyapp.model.Utils
 import com.example.literacyapp.adapters.SqliteOpenHelper
 import com.example.literacyapp.utils.ReadingQuestions
-import com.example.literacyapp.utils.ReadingQuestions.CORRECT_READING_ANSWERS
-import kotlinx.android.synthetic.main.activity_levels.*
 import kotlinx.android.synthetic.main.activity_results.*
 import java.text.SimpleDateFormat
 import java.util.*

@@ -58,7 +58,7 @@ class CommunicationsLessonsActivity : BaseActivity() {
         val actionBar = supportActionBar
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true)
-            actionBar.setHomeAsUpIndicator(R.drawable.ic_black_color_back_24dp)
+            actionBar.setHomeAsUpIndicator(R.drawable.ic_white_color_back_24dp)
         }
 
         toolbar_communications_menu_activity.setNavigationOnClickListener { onBackPressed() }

@@ -5,32 +5,34 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.speech.tts.TextToSpeech
 import android.util.Log
-import android.view.View
 import android.view.WindowManager
-import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import com.example.literacyapp.R
 import com.example.literacyapp.activities.BaseActivity
 import com.example.literacyapp.activities.CoursesActivity
-import com.example.literacyapp.activities.Utils
-import com.example.literacyapp.model.CoursesQuiz
+import com.example.literacyapp.model.Utils
 import com.example.literacyapp.utils.Constants
-import com.example.literacyapp.utils.ReadingQuestions
 import kotlinx.android.synthetic.main.activity_courses.*
+import kotlinx.android.synthetic.main.activity_reading_detail.*
 import kotlinx.android.synthetic.main.activity_reading_lessons.*
+import kotlinx.android.synthetic.main.activity_reading_lessons.btnSpeak
 import kotlinx.android.synthetic.main.activity_reading_quiz.*
 import kotlinx.android.synthetic.main.activity_reading_words_ws.*
 import kotlinx.android.synthetic.main.header_reading_item.*
+import java.util.*
 
 //const val READING_ID = "reading id"
 
-class ReadingLessonsActivity : BaseActivity() {
+class ReadingLessonsActivity : BaseActivity(), TextToSpeech.OnInitListener {
     val TAG = "Reading Lesson 1"
     private var mCurrentPosition: Int = 1 // Default and the first question position
     private var mWorksheetList: TextView? = null
     private var mCorrectAnswers: Int = 0
+
+    private var tts: TextToSpeech? = null //Variable for Text to Speech
 
     private var isBackground = true
 
@@ -56,6 +58,14 @@ class ReadingLessonsActivity : BaseActivity() {
             onBackPressed()
         }
         setupActionBar()
+
+        //Initialize the Text to Speech
+        tts = TextToSpeech(this, this)
+
+        btnSpeak.setOnClickListener { view ->
+            speakOut(R.string.sound_lessons.toString())
+        }
+
 
         mSharedPreference = getSharedPreferences(Constants.PREFERENCE_NAME, Context.MODE_PRIVATE)
 
@@ -179,7 +189,7 @@ class ReadingLessonsActivity : BaseActivity() {
         val actionBar = supportActionBar
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true)
-            actionBar.setHomeAsUpIndicator(R.drawable.ic_black_color_back_24dp)
+            actionBar.setHomeAsUpIndicator(R.drawable.ic_white_color_back_24dp)
         }
 
         toolbar_reading_menu_activity.setNavigationOnClickListener { onBackPressed() }
@@ -207,6 +217,24 @@ class ReadingLessonsActivity : BaseActivity() {
         val LESSONS_COMPLETED = "LessonsCompleted"
         private val LESSONS_REQUEST_CODE = 0
 
+    }
+
+    private fun speakOut(text: String) {
+        val text = getString(R.string.sound_lessons)
+        tts!!.speak(text, TextToSpeech.QUEUE_FLUSH, null, "")
+    }
+    override fun onInit(status: Int) {
+        if (status == TextToSpeech.SUCCESS) {
+            // set US English as language for tts
+            val result = tts!!.setLanguage(Locale.US)
+
+            if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                Log.e("TTS", "The Language specified is not supported!")
+
+            }
+        } else {
+            Log.e("TTS", "Initialization Failed!")
+        }
     }
 }
 

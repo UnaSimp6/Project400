@@ -24,7 +24,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="170dp"
                 android:layout_marginTop="15dp"
-                android:textColor="@color/primary_text_color"
+                android:textColor="@color/white_text_color"
                 android:textSize="@dimen/toolbar_title_text_size"
                 android:textStyle="bold" />
 
@@ -80,6 +80,17 @@
         android:gravity="center"
         android:orientation="vertical"
         android:padding="16dp">
+
+        <ImageButton
+            android:id="@+id/btnSpeakrq"
+            android:layout_width="49dp"
+            android:layout_height="32dp"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="right"
+            android:src="@drawable/ic_sound"
+            android:text="This is Question \nThis is Question"
+            android:textColor="@android:color/white">
+        </ImageButton>
 
         <TextView
             android:id="@+id/Question"

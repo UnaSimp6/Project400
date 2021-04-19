@@ -5,17 +5,16 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.provider.Settings.Global.putInt
 import android.util.Log
 import android.view.WindowManager
 import com.example.literacyapp.R
 import com.example.literacyapp.activities.communications.CommunicationsExplanationActivity
 import com.example.literacyapp.activities.listening.ListeningExplanationActivity
-import com.example.literacyapp.activities.reading.ReadingDetailActivity
 import com.example.literacyapp.activities.reading.ReadingExplanationActivity
 import com.example.literacyapp.activities.reading.ReadingLessonsActivity
 import com.example.literacyapp.activities.reading.ReadingWordsWSActivity
 import com.example.literacyapp.activities.writing.WritingExplanationActivity
+import com.example.literacyapp.model.Utils
 import com.example.literacyapp.utils.Constants
 import kotlinx.android.synthetic.main.activity_courses.*
 import kotlinx.android.synthetic.main.activity_levels.*
@@ -26,9 +25,6 @@ class CoursesActivity :  BaseActivity() {
 
     val TAG = "Course 1"
 
-   // private var tutorialUsed = false
-    //private var tutorialPage = 2
-
     private var isBackground = true
 
     private lateinit var mSharedPreference: SharedPreferences
@@ -38,11 +34,6 @@ class CoursesActivity :  BaseActivity() {
         Utils.onActivityCreateSetTheme(this)
 
         setContentView(R.layout.activity_courses)
-
-       // tutorialUsed = false
-       // tutorialPage = 1
-
-       // init()
 
         // This is used to hide the status bar and make the splash screen as a full screen activity.
         window.setFlags(
@@ -100,37 +91,6 @@ class CoursesActivity :  BaseActivity() {
             }
         }
     }
-    /*override fun onSaveInstanceState(savedInstanceState: Bundle) {
-        super.onSaveInstanceState(savedInstanceState)
-        // save the tutorial page (or something else)
-        savedInstanceState.putInt("TutPage", tutorialPage)
-        savedInstanceState.putBoolean("tutUsed", tutorialUsed)
-        // more additions possible
-    }
-
-    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
-        super.onRestoreInstanceState(savedInstanceState)
-        // restore state
-        tutorialPage = savedInstanceState.getInt("TutPage")
-        tutorialUsed = savedInstanceState.getBoolean("tutUsed")
-        init()
-    }
-
-    *//** do your startup tasks here  *//*
-    fun init() {
-        if (!tutorialUsed) {
-            showTutorial(tutorialPage)
-        }
-    }
-
-
-    fun showTutorial(tutorialPage: Int) {
-        Utils.onActivityCreateSetTheme(this)
-
-        setContentView(R.layout.activity_courses)
-
-    }*/
-
 
     override fun onRestart() {
         super.onRestart()
@@ -201,11 +161,12 @@ class CoursesActivity :  BaseActivity() {
         val actionBar = supportActionBar
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true)
-            actionBar.setHomeAsUpIndicator(R.drawable.ic_black_color_back_24dp)
+            actionBar.setHomeAsUpIndicator(R.drawable.ic_white_color_back_24dp)
         }
 
         toolbar_courses_activity.setNavigationOnClickListener { onBackPressed() }
     }
+
 
     companion object {
         val COURSES_COMPLETED = "CoursesCompleted"

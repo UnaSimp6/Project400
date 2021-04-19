@@ -11,31 +11,14 @@
     tools:context=".activities.MainActivity">
 
 
-    <!-- <androidx.appcompat.widget.Toolbar
-         android:id="@+id/toolbar_levels_activity"
+     <TextView
          android:layout_width="match_parent"
-         android:layout_height="?attr/actionBarSize">
-
-         <TextView
-             android:id="@+id/tv_title"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             android:gravity="center_vertical"
-             android:text="Back"
-             android:textColor="@color/primary_text_color"
-             android:textSize="@dimen/toolbar_title_text_size"
-             android:textStyle="bold" />
-
-     </androidx.appcompat.widget.Toolbar>-->
-
-         <TextView
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             android:text="@string/level_subheading"
-             android:gravity="center"
-             android:textSize="25sp"
-             android:layout_marginTop="100dp"
-             android:textColor="@color/secondary_text_color" />
+         android:layout_height="wrap_content"
+         android:text="@string/level_subheading"
+         android:gravity="center"
+         android:textSize="25sp"
+         android:layout_marginTop="100dp"
+         android:textColor="@color/secondary_text_color" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -137,7 +120,6 @@
         </LinearLayout>
 
     </LinearLayout>
-
 
 </LinearLayout>
 

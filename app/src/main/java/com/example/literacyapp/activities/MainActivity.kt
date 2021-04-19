@@ -15,6 +15,7 @@ import com.bumptech.glide.Glide
 import com.example.literacyapp.R
 import com.example.literacyapp.firebase.FirestoreClass
 import com.example.literacyapp.model.User
+import com.example.literacyapp.model.Utils
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_courses.*
@@ -236,7 +237,7 @@ class MainActivity: BaseActivity(), TextToSpeech.OnInitListener, NavigationView.
 
     private fun setupActionBar() {
         setSupportActionBar(toolbar_main_activity)
-        toolbar_main_activity.setNavigationIcon(R.drawable.ic_action_navigation_menu)
+        toolbar_main_activity.setNavigationIcon(R.drawable.ic_action_navigation_menu_white)
 
         toolbar_main_activity.setNavigationOnClickListener {
             //Toggle drawer

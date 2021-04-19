@@ -1,8 +1,7 @@
-package com.example.literacyapp.activities
+package com.example.literacyapp.model
 import android.app.Activity
 import android.content.Intent
 import com.example.literacyapp.R
-import kotlinx.android.synthetic.main.activity_courses.*
 
 object Utils {
     private var sTheme = 0

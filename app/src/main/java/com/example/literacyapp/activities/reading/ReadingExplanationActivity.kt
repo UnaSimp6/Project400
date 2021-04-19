@@ -7,7 +7,7 @@ import android.util.Log
 import android.view.WindowManager
 import com.example.literacyapp.R
 import com.example.literacyapp.activities.BaseActivity
-import com.example.literacyapp.activities.Utils
+import com.example.literacyapp.model.Utils
 import kotlinx.android.synthetic.main.activity_courses.*
 import kotlinx.android.synthetic.main.activity_reading_explanation.*
 import kotlinx.android.synthetic.main.activity_levels.*
@@ -96,7 +96,7 @@ class ReadingExplanationActivity : BaseActivity(), TextToSpeech.OnInitListener {
         val actionBar = supportActionBar
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true)
-            actionBar.setHomeAsUpIndicator(R.drawable.ic_black_color_back_24dp)
+            actionBar.setHomeAsUpIndicator(R.drawable.ic_white_color_back_24dp)
         }
 
         toolbar_reading_explanation_activity.setNavigationOnClickListener { onBackPressed() }

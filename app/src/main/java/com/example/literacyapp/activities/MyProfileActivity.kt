@@ -158,7 +158,8 @@ class MyProfileActivity : BaseActivity() {
         val actionBar = supportActionBar
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true)
-            actionBar.setHomeAsUpIndicator(R.drawable.ic_white_color_back_24dp)
+            //actionBar.setHomeAsUpIndicator(R.drawable.ic_white_color_back_24dp)
+            actionBar.setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_ios_24)
             actionBar.title = resources.getString(R.string.my_profile)
         }
 

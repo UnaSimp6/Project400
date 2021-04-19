@@ -58,7 +58,7 @@
     <string name="skip_quiz">Skip the Quiz</string>
 
     <string name="course_guidance">Please select one of the lessons </string>
-
+    <string name="sound_lessons">1 Reading everyday words 2 Using rules 3 Reading texts 4 Finding Information 5 Reading Strategies</string>
     <string name="result_text">Click skip this course to return to the Courses Menu.\n\nClick Continue to go to the lessons. </string>
 
     <string name="result_skip">Skip this course </string>
@@ -80,8 +80,7 @@
     <string name="linking_words_text">Use of linking words - so, because, if</string>
     <string name="same_sounding_words_text">Same sounding words - pick correct for definition</string>
     <string name="common_abbr_text">Common abbreviations</string>
-    <string name="title_activity_communications_explanation">CommunicationsExplanationActivity
-    </string>
+    <string name="title_activity_communications_explanation">CommunicationsExplanationActivity</string>
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>

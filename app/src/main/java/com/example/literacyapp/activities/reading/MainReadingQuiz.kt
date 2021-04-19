@@ -6,25 +6,35 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.content.res.ColorStateList
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.speech.tts.TextToSpeech
 import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
 import com.example.literacyapp.R
-import com.example.literacyapp.activities.Utils
+import com.example.literacyapp.model.Utils
 import com.example.literacyapp.adapters.DatabaseHelper
 import com.example.literacyapp.adapters.SqliteOpenHelper
 import com.example.literacyapp.data.ReadingQuestion
 import com.example.literacyapp.utils.Constants
+import kotlinx.android.synthetic.main.activity_levels.*
+import kotlinx.android.synthetic.main.activity_main_reading_quiz.*
 import kotlinx.android.synthetic.main.activity_reading_words_ws.*
 import kotlinx.android.synthetic.main.activity_results.*
 import java.text.SimpleDateFormat
 import java.util.*
 
-class MainReadingQuiz : AppCompatActivity() {
+class MainReadingQuiz : AppCompatActivity(), TextToSpeech.OnInitListener {
+
+    private val KEY_ANSWERED = "keyAnswered"
+    private val KEY_QUESTION_LIST = "keyQuestionList"
+    private val KEY_SCORE = "keyScore"
+    private val KEY_QUESTION_COUNT = "keyQuestionCount"
+
+    private var tts: TextToSpeech? = null //Variable for Text to Speech
 
     private var txtQuestion: TextView? = null
     private var txtScore: TextView? = null
@@ -65,6 +75,9 @@ class MainReadingQuiz : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
 
+        //Initialize the Text to Speech
+        tts = TextToSpeech(this, this)
+
         mSharedPreference = getSharedPreferences(Constants.PREFERENCE_NAME, Context.MODE_PRIVATE)
 
         txtQuestion = findViewById(R.id.Question)
@@ -81,15 +94,37 @@ class MainReadingQuiz : AppCompatActivity() {
 
         colorStateListCountDown = txtCounter!!.textColors
 
-        val questionDb = DatabaseHelper(this)
-        questionSetsList = questionDb.questionSet
-
-        qCountTotal = questionSetsList!!.size
-
-        Collections.shuffle(questionSetsList!!)
 
 
-        showQuestion()
+        //val questionDb = DatabaseHelper(this)
+        //questionSetsList = questionDb.getAllQuestions()
+        val intent = intent
+        val categoryID = intent.getIntExtra(ReadingWordsWSActivity.EXTRA_CATEGORY_ID, 0)
+
+        //qCountTotal = questionSetsList!!.size
+
+        //Collections.shuffle(questionSetsList!!)
+
+        if (savedInstanceState == null) {
+            val dbHelper = DatabaseHelper(this);
+            questionSetsList = dbHelper.getQuestions(categoryID);
+            qCountTotal = questionSetsList!!.size
+            Collections.shuffle(questionSetsList)
+            showQuestion()
+        } else {
+            questionSetsList = savedInstanceState[KEY_QUESTION_LIST] as List<ReadingQuestion>?
+            qCountTotal = questionSetsList!!.size
+            qCounter = savedInstanceState.getInt(KEY_QUESTION_COUNT);
+            currQuestion = questionSetsList!!.get(qCounter - 1);
+            score = savedInstanceState.getInt(KEY_SCORE);
+            ans = savedInstanceState.getBoolean(KEY_ANSWERED);
+            if (!ans) {
+
+            } else {
+                showRightAns();
+            }
+        }
+
         mSubmit!!.setOnClickListener {
             if (!ans) {
                 if (r1!!.isChecked || r2!!.isChecked || r3!!.isChecked) {
@@ -116,6 +151,10 @@ class MainReadingQuiz : AppCompatActivity() {
 
             txtQuestion!!.text = currQuestion!!.getmQuestion()
 
+            btnSpeakrq.setOnClickListener { view ->
+                speakOut(txtQuestion!!.text.toString())
+            }
+
             r1!!.text = currQuestion!!.getmOption1()
             r2!!.text = currQuestion!!.getmOption2()
             r3!!.text = currQuestion!!.getmOption3()
@@ -136,6 +175,7 @@ class MainReadingQuiz : AppCompatActivity() {
         }
 
         }
+
     private fun startCountDown() {
         countDownTimer = object : CountDownTimer(timeLeft, 1000) {
             override fun onTick(millisUntilFinished: Long) {
@@ -215,10 +255,14 @@ class MainReadingQuiz : AppCompatActivity() {
 
         val tscore=score.toInt()
         val editor = mSharedPreference.edit()
+
         editor.putInt(Constants.WORKSHEET_RESPONSE_DATA, tscore)
         editor.apply()
+
         val intent = Intent(this, ReadingWordsWSActivity::class.java)
+
         intent.putExtra(Constants.WORKSHEET_RESPONSE_DATA, tscore)
+
         setResult(Activity.RESULT_OK, intent)
         startActivityForResult(intent, WS_ACTIVITY_REQUEST_CODE)
 
@@ -261,6 +305,7 @@ class MainReadingQuiz : AppCompatActivity() {
             }
         }
     }
+
     override fun onBackPressed() {
 
         if (onBackPressedTime + 2000 > System.currentTimeMillis()) {
@@ -270,6 +315,11 @@ class MainReadingQuiz : AppCompatActivity() {
         }
         onBackPressedTime = System.currentTimeMillis()
 
+    }
+
+    private fun speakOut(text: String) {
+        //val text = txtQuestion.toString()
+        tts!!.speak(text, TextToSpeech.QUEUE_FLUSH, null, "")
     }
 
     private fun addDateToDatabase() {
@@ -289,10 +339,23 @@ class MainReadingQuiz : AppCompatActivity() {
         Log.e("Date : ", "Added...") // Printed in log which is printed if the complete execution is done.
     }
 
-
     companion object {
         val FINAL_SCORE = "FinalScore"
         private val COUNTDOWN_TIMER: Long = 200000
         private val WS_ACTIVITY_REQUEST_CODE = 0
+    }
+
+    override fun onInit(status: Int) {
+        if (status == TextToSpeech.SUCCESS) {
+            // set US English as language for tts
+            val result = tts!!.setLanguage(Locale.US)
+
+            if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                Log.e("TTS", "The Language specified is not supported!")
+
+            }
+        } else {
+            Log.e("TTS", "Initialization Failed!")
+        }
     }
 }

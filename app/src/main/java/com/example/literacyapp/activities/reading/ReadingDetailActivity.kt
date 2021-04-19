@@ -1,23 +1,18 @@
 package com.example.literacyapp.activities.reading
 
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.util.Log
-import android.view.View
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.Toast
 import com.example.literacyapp.R
 import com.example.literacyapp.activities.BaseActivity
-import com.example.literacyapp.activities.Utils
+import com.example.literacyapp.model.Utils
 import com.example.literacyapp.utils.Constants
-import com.google.android.youtube.player.YouTubeBaseActivity
-import com.google.android.youtube.player.YouTubeInitializationResult
-import com.google.android.youtube.player.YouTubePlayer
 import com.google.android.youtube.player.YouTubeStandalonePlayer
 import kotlinx.android.synthetic.main.activity_courses.*
 import kotlinx.android.synthetic.main.activity_reading_explanation.*
@@ -138,8 +133,6 @@ class ReadingDetailActivity :  BaseActivity(), TextToSpeech.OnInitListener {
             startActivity(intent)
         }
 
-
-
     }
 
     /**
@@ -152,9 +145,8 @@ class ReadingDetailActivity :  BaseActivity(), TextToSpeech.OnInitListener {
         val actionBar = supportActionBar
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true)
-            actionBar.setHomeAsUpIndicator(R.drawable.ic_black_color_back_24dp)
+            actionBar.setHomeAsUpIndicator(R.drawable.ic_white_color_back_24dp)
         }
-
 
         toolbar_Reading_Detail_activity.setNavigationOnClickListener { onBackPressed() }
     }

@@ -24,7 +24,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="170dp"
                 android:layout_marginTop="15dp"
-                android:textColor="@color/primary_text_color"
+                android:textColor="@color/white_text_color"
                 android:textSize="@dimen/toolbar_title_text_size"
                 android:textStyle="bold" />
 
@@ -50,7 +50,7 @@
             android:id="@+id/tv_question"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="50dp"
+            android:layout_margin="10dp"
             android:gravity="center"
             android:textColor="#363A43"
             android:textSize="22sp"
@@ -60,7 +60,7 @@
             android:id="@+id/ll_progress_details"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="1dp"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             >
